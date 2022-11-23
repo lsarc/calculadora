@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using calculadora.model;
+using calculadora.controller;
 using System.Collections;
 using System.Diagnostics;
 
@@ -26,17 +27,19 @@ namespace calculadora
         public MainWindow()
         {
             InitializeComponent();
-            var pilha = new StackModel();
-
-            pilha.Push(20);
-            pilha.Push(10);
-            pilha.Push(50);
-            pilha.Push(90);
-            Trace.WriteLine(pilha.Pop());
-            pilha.Switch(0, 2);
-            Trace.WriteLine(pilha.Pop());
-            Trace.WriteLine(pilha.Pop());
-            Trace.WriteLine(pilha.PrintStack());
+            var controller = new CalcController();
+            controller.Push(20);
+            controller.Push(10);
+            controller.Push(50);
+            controller.Push(90);
+            Trace.WriteLine("print da pilha:\n" + controller.PrintStack());
+            controller.Switch(0, 3);
+            Trace.WriteLine("print da pilha:\n" + controller.PrintStack());
+            controller.Pop();
+            controller.Pop();
+            Trace.WriteLine("print da pilha:\n" + controller.PrintStack());
+            controller.Clean();
+            Trace.WriteLine("print da pilha:\n" + controller.PrintStack());
 
 
         }

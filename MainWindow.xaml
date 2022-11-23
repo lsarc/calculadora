@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:calculadora"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="800" Width="400">
     <Grid>
+        <WrapPanel Orientation="Horizontal" Margin="71,34,177,417">
+            <Button Margin="10" Height="40" Width="40" Content="+"/>
+            <Button Margin="10" Height="40" Width="40" Content="-"/>
+            <Button Margin="10" Height="40" Width="40" Content="*"/>
+            <Button Margin="10" Height="40" Width="40" Content="/"/>
 
+        </WrapPanel>
     </Grid>
 </Window>

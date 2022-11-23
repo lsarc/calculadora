@@ -30,6 +30,7 @@ namespace calculadora.model
 
         public Complex Pop()
         {
+            stack[size] = Complex.Zero;
             size--;
             return stack[--start];  
         }
@@ -47,9 +48,13 @@ namespace calculadora.model
             for (int i = 0; i < size; i++)
             {
                  str += stack[i].ToString() + "\n";
-               
             }
             return str;
+        }
+
+        public int getSize()
+        {
+            return size;
         }
     }
 
