@@ -13,24 +13,24 @@ namespace calculadora.model
     {
         private int start;
         private int size;
-        private Complex[] stack;
+        private double[] stack;
 
         public StackModel()
         {
             start = 0;
             size = 0;
-            stack = new Complex[100];
+            stack = new double[100];
         }
 
-        public void Push(Complex num)
+        public void Push(double num)
         {
             size++;
             stack[start++] = num;
         }
 
-        public Complex Pop()
+        public double Pop()
         {
-            stack[size] = Complex.Zero;
+            stack[size] = 0.0;
             size--;
             return stack[--start];  
         }

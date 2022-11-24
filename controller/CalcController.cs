@@ -13,18 +13,20 @@ namespace calculadora.controller
 {
     public class CalcController
     {
-        public StackModel stack;
+        private StackModel stack;
+        private HistoryModel history;
         public CalcController()
         {
             stack = new StackModel();
+            history = new HistoryModel();
         }
 
-        public void Push(Complex num)
+        public void Push(double num)
         {
             stack.Push(num);
         }
 
-        public Complex Pop()
+        public double Pop()
         {
             return stack.Pop();
         }
@@ -39,35 +41,56 @@ namespace calculadora.controller
             return stack.PrintStack();
         }
 
-        public void Add()
+        public void Sum()
         {
-            stack.Push(stack.Pop() + stack.Pop());
+            double num1 = stack.Pop();
+            double num2 = stack.Pop();
+            history.AddToHistory($"{num1} + {num2}");
+            stack.Push(num1 + num2);
         }
 
         public void Sub()
         {
-            stack.Push(- stack.Pop() + stack.Pop());
+            double num1 = stack.Pop();
+            double num2 = stack.Pop();
+            history.AddToHistory($"{num2} - {num1}");
+            stack.Push(num2 - num1);
         }
 
         public void Mult()
         {
-            stack.Push(stack.Pop() * stack.Pop());
+            double num1 = stack.Pop();
+            double num2 = stack.Pop();
+            history.AddToHistory($"{num1} * {num2}");
+            stack.Push(num1 * num2);
         }
 
         public void Div()
         {
-            stack.Push(1/stack.Pop() * stack.Pop());
+            double num1 = stack.Pop();
+            double num2 = stack.Pop();
+            history.AddToHistory($"{num2} / {num1}");
+            stack.Push(num2 / num1);
         }
 
         public void Sqrt()
         {
-            stack.Push(new Complex (Math.Sqrt(stack.Pop().Real), Math.Sqrt(stack.Pop().Imaginary)));
+            var num = Math.Sqrt(stack.Pop());
+            history.AddToHistory($"sqrt({num})");
+            stack.Push(num);
+        }
+
+        public void Copy()
+        {
+            double num = stack.Pop();
+            stack.Push(num);
+            stack.Push(num);
         }
 
         public void Percent()
         {
             var num = stack.Pop();
-            if (num.Imaginary != 0)
+            if (num > 1.0)
             {
                 stack.Push(num);
                 throw new InvalidOperationException();
@@ -84,6 +107,11 @@ namespace calculadora.controller
             {
                 stack.Pop();
             }
+        }
+
+        public List<string> getHistory()
+        {
+            return history.getHistory();
         }
     }
 }

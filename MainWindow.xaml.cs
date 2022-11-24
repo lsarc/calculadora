@@ -29,17 +29,22 @@ namespace calculadora
             InitializeComponent();
             var controller = new CalcController();
             controller.Push(20);
-            controller.Push(10);
             controller.Push(50);
-            controller.Push(90);
-            Trace.WriteLine("print da pilha:\n" + controller.PrintStack());
-            controller.Switch(0, 3);
-            Trace.WriteLine("print da pilha:\n" + controller.PrintStack());
-            controller.Pop();
-            controller.Pop();
-            Trace.WriteLine("print da pilha:\n" + controller.PrintStack());
-            controller.Clean();
-            Trace.WriteLine("print da pilha:\n" + controller.PrintStack());
+            controller.Push(80);
+            controller.Push(100);
+            Trace.WriteLine(controller.PrintStack());
+            controller.Sum();
+            Trace.WriteLine(controller.PrintStack());
+            controller.Sub();
+            controller.Copy();
+            Trace.WriteLine(controller.PrintStack());
+            controller.Mult();
+            Trace.WriteLine(controller.PrintStack());
+            controller.Switch(1,0);
+            controller.Div();
+            Trace.WriteLine(controller.PrintStack());
+            controller.Sqrt();
+            Trace.WriteLine(controller.PrintStack());
 
 
         }
