@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Numerics;
 using System.ComponentModel;
 using System.Windows;
+using System.IO;
 
 namespace calculadora.model
 {
@@ -55,6 +56,27 @@ namespace calculadora.model
         public int getSize()
         {
             return size;
+        }
+
+        public void SaveStack()
+        {
+            using (StreamWriter writer = new StreamWriter(@".\stack.sav"))
+            {
+                writer.WriteLine(PrintStack());
+            }
+        }
+
+        public void RestoreStack()
+        {
+            string[] readText = File.ReadAllText(@".\stack.sav").Split("\n", StringSplitOptions.RemoveEmptyEntries);
+            int i;
+            for (i = 0; i < readText.Length-1; i++)
+            {
+                stack[i] = double.Parse(readText[i].Trim());
+            }
+            size = i;
+            start = i;
+           
         }
     }
 

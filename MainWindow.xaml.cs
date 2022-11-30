@@ -16,6 +16,7 @@ using calculadora.model;
 using calculadora.controller;
 using System.Collections;
 using System.Diagnostics;
+using System.Xml.Linq;
 
 namespace calculadora
 {
@@ -28,23 +29,38 @@ namespace calculadora
         {
             InitializeComponent();
             var controller = new CalcController();
-            controller.Push(20);
-            controller.Push(50);
-            controller.Push(80);
-            controller.Push(100);
+            controller.Restore();
             Trace.WriteLine(controller.PrintStack());
-            controller.Sum();
-            Trace.WriteLine(controller.PrintStack());
-            controller.Sub();
-            controller.Copy();
-            Trace.WriteLine(controller.PrintStack());
-            controller.Mult();
-            Trace.WriteLine(controller.PrintStack());
-            controller.Switch(1,0);
-            controller.Div();
-            Trace.WriteLine(controller.PrintStack());
-            controller.Sqrt();
-            Trace.WriteLine(controller.PrintStack());
+            foreach (var element in controller.getHistory())
+            {
+                Trace.WriteLine(element);
+            }
+            //controller.Push(20);
+            //controller.Push(50);
+            //controller.Push(80);
+            //controller.Push(100);
+            //Trace.WriteLine(controller.PrintStack());
+            //controller.Sum();
+            //Trace.WriteLine(controller.PrintStack());
+            //controller.Sub();
+            //controller.Copy();
+            //Trace.WriteLine(controller.PrintStack());
+            //controller.Mult();
+            //Trace.WriteLine(controller.PrintStack());
+            //controller.Switch(1, 0);
+            //controller.Div();
+            //Trace.WriteLine(controller.PrintStack());
+            //controller.Sqrt();
+            //Trace.WriteLine(controller.PrintStack());
+            //controller.Push(20);
+            //controller.Push(50);
+            //controller.Push(80);
+            //controller.Push(100);
+            //foreach (var element in controller.getHistory())
+            //{
+            //    Trace.WriteLine(element);
+            //}
+            //controller.Save();
 
 
         }

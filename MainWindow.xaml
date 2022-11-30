@@ -7,11 +7,24 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="400">
     <Grid>
-        <WrapPanel Orientation="Horizontal" Margin="71,34,177,417">
+        <WrapPanel Orientation="Horizontal" Margin="71,34,200,617">
             <Button Margin="10" Height="40" Width="40" Content="+"/>
             <Button Margin="10" Height="40" Width="40" Content="-"/>
             <Button Margin="10" Height="40" Width="40" Content="*"/>
             <Button Margin="10" Height="40" Width="40" Content="/"/>
+
+        </WrapPanel>
+        <WrapPanel Orientation="Horizontal" Margin="71,190,142,354">
+            <Button Margin="10" Height="40" Width="40" Content="7"/>
+            <Button Margin="10" Height="40" Width="40" Content="8"/>
+            <Button Margin="10" Height="40" Width="40" Content="9"/>
+            <Button Margin="10" Height="40" Width="40" Content="4"/>
+            <Button Margin="10" Height="40" Width="40" Content="5"/>
+            <Button Margin="10" Height="40" Width="40" Content="6"/>
+            <Button Margin="10" Height="40" Width="40" Content="1"/>
+            <Button Margin="10" Height="40" Width="40" Content="2"/>
+            <Button Margin="10" Height="40" Width="40" Content="3"/>
+            <Button Margin="10" Height="40" Width="40" Content="0"/>
 
         </WrapPanel>
     </Grid>

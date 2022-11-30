@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using calculadora.model;
 using System.Numerics;
 using System.Collections;
+using Microsoft.Win32;
 
 namespace calculadora.controller
 {
@@ -112,6 +113,19 @@ namespace calculadora.controller
         public List<string> getHistory()
         {
             return history.getHistory();
+        }
+
+        public void Save()
+        {
+            stack.SaveStack();
+            history.SaveHistory();
+        }
+
+        public void Restore()
+        {
+            
+            history.RestoreHistory();
+            stack.RestoreStack();
         }
     }
 }
