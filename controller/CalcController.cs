@@ -76,9 +76,9 @@ namespace calculadora.controller
 
         public void Sqrt()
         {
-            var num = Math.Sqrt(stack.Pop());
+            var num = stack.Pop();
             history.AddToHistory($"sqrt({num})");
-            stack.Push(num);
+            stack.Push( Math.Sqrt(num));
         }
 
         public void Copy()

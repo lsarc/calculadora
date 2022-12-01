@@ -29,48 +29,43 @@ namespace calculadora
         {
             var controller = new CalcController();
             InitializeComponent();
-            try
-            {
-                controller.Restore();
-            }
-            catch
-            {
+            //try
+            //{
+            //    controller.Restore();
+            //}
+            //catch
+            //{
 
-            }
-            
-            foreach (var element in controller.getStack())
-            {
-                Trace.WriteLine(element);
-            }
-            foreach (var element in controller.getHistory())
-            {
-                Trace.WriteLine(element);
-            }
-            //controller.Push(20);
-            //controller.Push(50);
-            //controller.Push(80);
-            //controller.Push(100);
-            //Trace.WriteLine(controller.PrintStack());
-            //controller.Sum();
-            //Trace.WriteLine(controller.PrintStack());
-            //controller.Sub();
-            //controller.Copy();
-            //Trace.WriteLine(controller.PrintStack());
-            //controller.Mult();
-            //Trace.WriteLine(controller.PrintStack());
-            //controller.Switch(1, 0);
-            //controller.Div();
-            //Trace.WriteLine(controller.PrintStack());
-            //controller.Sqrt();
-            //Trace.WriteLine(controller.PrintStack());
-            //controller.Push(20);
-            //controller.Push(50);
-            //controller.Push(80);
-            //controller.Push(100);
+            //}
+
+            //foreach (var element in controller.getStack())
+            //{
+            //    Trace.WriteLine(element);
+            //}
             //foreach (var element in controller.getHistory())
             //{
             //    Trace.WriteLine(element);
             //}
+            controller.Push(20);
+            controller.Push(50);
+            controller.Push(80);
+            controller.Push(100);
+
+            controller.Sum();
+            controller.Sub();
+            controller.Copy();
+            controller.Mult();
+            controller.Switch(1, 0);
+            controller.Div();
+            controller.Sqrt();
+            controller.Push(20);
+            controller.Push(50);
+            controller.Push(80);
+            controller.Push(100);
+            foreach (var element in controller.getHistory())
+            {
+                Trace.WriteLine(element);
+            }
             //controller.Save();
             stack.ItemsSource = controller.getStack();
             history.ItemsSource = controller.getHistory();
