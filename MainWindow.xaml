@@ -7,14 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="400">
     <Grid>
-        <WrapPanel Orientation="Horizontal" Margin="71,34,200,617">
+        <WrapPanel Orientation="Horizontal" Margin="239,371,0,250">
             <Button Margin="10" Height="40" Width="40" Content="+"/>
             <Button Margin="10" Height="40" Width="40" Content="-"/>
             <Button Margin="10" Height="40" Width="40" Content="*"/>
             <Button Margin="10" Height="40" Width="40" Content="/"/>
 
         </WrapPanel>
-        <WrapPanel Orientation="Horizontal" Margin="71,190,142,354">
+        <WrapPanel Orientation="Horizontal" Margin="13,357,166,135">
             <Button Margin="10" Height="40" Width="40" Content="7"/>
             <Button Margin="10" Height="40" Width="40" Content="8"/>
             <Button Margin="10" Height="40" Width="40" Content="9"/>
@@ -27,5 +27,17 @@
             <Button Margin="10" Height="40" Width="40" Content="0"/>
 
         </WrapPanel>
+
+        <ListView Name="stack" Margin="31,26,219,496" RenderTransformOrigin="0.516,0.499">
+            
+
+        </ListView>
+
+        <ListView Name="history" Margin="226,26,23,496" RenderTransformOrigin="0.516,0.499">
+
+
+        </ListView>
     </Grid>
+
+    
 </Window>

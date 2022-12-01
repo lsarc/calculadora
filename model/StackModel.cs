@@ -43,14 +43,14 @@ namespace calculadora.model
             stack[index2] = temp;
         }
 
-        public string PrintStack()
+        public List<double> getStack()
         {
-            string str = string.Empty;
+            List<double> lista = new List<double>();
             for (int i = 0; i < size; i++)
             {
-                 str += stack[i].ToString() + "\n";
+                lista.Add(stack[i]);
             }
-            return str;
+            return lista;
         }
 
         public int getSize()
@@ -61,21 +61,29 @@ namespace calculadora.model
         public void SaveStack()
         {
             using (StreamWriter writer = new StreamWriter(@".\stack.sav"))
+                foreach (var element in getStack())
             {
-                writer.WriteLine(PrintStack());
+                writer.WriteLine(element);
             }
         }
 
         public void RestoreStack()
         {
-            string[] readText = File.ReadAllText(@".\stack.sav").Split("\n", StringSplitOptions.RemoveEmptyEntries);
-            int i;
-            for (i = 0; i < readText.Length-1; i++)
+            try
             {
-                stack[i] = double.Parse(readText[i].Trim());
+                string[] readText = File.ReadAllText(@".\stack.sav").Split("\n", StringSplitOptions.RemoveEmptyEntries);
+                int i;
+                for (i = 0; i < readText.Length - 1; i++)
+                {
+                    stack[i] = double.Parse(readText[i].Trim());
+                }
+                size = i;
+                start = i;
             }
-            size = i;
-            start = i;
+            catch
+            {
+                throw new Exception("Erro de Leitura");
+            }
            
         }
     }

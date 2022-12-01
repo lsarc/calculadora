@@ -27,10 +27,21 @@ namespace calculadora
     {
         public MainWindow()
         {
-            InitializeComponent();
             var controller = new CalcController();
-            controller.Restore();
-            Trace.WriteLine(controller.PrintStack());
+            InitializeComponent();
+            try
+            {
+                controller.Restore();
+            }
+            catch
+            {
+
+            }
+            
+            foreach (var element in controller.getStack())
+            {
+                Trace.WriteLine(element);
+            }
             foreach (var element in controller.getHistory())
             {
                 Trace.WriteLine(element);
@@ -61,7 +72,8 @@ namespace calculadora
             //    Trace.WriteLine(element);
             //}
             //controller.Save();
-
+            stack.ItemsSource = controller.getStack();
+            history.ItemsSource = controller.getHistory();
 
         }
     }

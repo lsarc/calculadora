@@ -37,9 +37,9 @@ namespace calculadora.controller
             stack.Switch(index1, index2);
         }
 
-        public string PrintStack()
+        public List<double> getStack()
         {
-            return stack.PrintStack();
+            return stack.getStack();
         }
 
         public void Sum()
