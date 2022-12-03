@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
@@ -11,11 +12,11 @@ namespace calculadora.model
 {
     public class HistoryModel
     {
-        private List<string> operacoes;
+        private ObservableCollection<string> operacoes;
 
         public HistoryModel()
         {
-            operacoes = new List<string>();
+            operacoes = new ObservableCollection<string>();
         }
 
         public void AddToHistory(string operation)
@@ -25,7 +26,7 @@ namespace calculadora.model
 
         public List<string> getHistory()
         {
-            return operacoes;
+            return operacoes.ToList();
         }
 
         public void Clean()
@@ -37,7 +38,7 @@ namespace calculadora.model
         {
             using (StreamWriter writer = new StreamWriter(@".\history.sav"))
             {
-                foreach (var element in this.getHistory())
+                foreach (var element in getHistory())
                 {
                     writer.WriteLine(element);
                 }
@@ -48,10 +49,10 @@ namespace calculadora.model
         {
             try
             {
-                string[] readText = File.ReadAllText(@".\history.sav").Split("\n ", StringSplitOptions.RemoveEmptyEntries);
+                string[] readText = File.ReadAllText(@".\history.sav").Split("\n", StringSplitOptions.RemoveEmptyEntries);
                 for (int i = 0; i < readText.Length; i++)
                 {
-                    operacoes.Add(readText[i]);
+                    operacoes.Add(readText[i].TrimEnd('\r'));
                 }
             }
             catch

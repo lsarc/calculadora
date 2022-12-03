@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,26 +15,23 @@ namespace calculadora.model
     {
         private int start;
         private int size;
-        private double[] stack;
+        private ObservableCollection<double> stack;
 
         public StackModel()
         {
-            start = 0;
-            size = 0;
-            stack = new double[100];
+            stack = new ObservableCollection<double>();
         }
 
         public void Push(double num)
         {
-            size++;
-            stack[start++] = num;
+            stack.Add(num);
         }
 
         public double Pop()
         {
-            stack[size] = 0.0;
-            size--;
-            return stack[--start];  
+            double num = stack[stack.Count-1];
+            stack.RemoveAt(stack.Count - 1);
+            return num;  
         }
 
         public void Switch(int index1, int index2)
@@ -45,26 +43,21 @@ namespace calculadora.model
 
         public List<double> getStack()
         {
-            List<double> lista = new List<double>();
-            for (int i = 0; i < size; i++)
-            {
-                lista.Add(stack[i]);
-            }
-            return lista;
+            return stack.ToList();
         }
 
         public int getSize()
         {
-            return size;
+            return stack.Count;
         }
 
         public void SaveStack()
         {
             using (StreamWriter writer = new StreamWriter(@".\stack.sav"))
                 foreach (var element in getStack())
-            {
-                writer.WriteLine(element);
-            }
+                {
+                    writer.WriteLine(element);
+                }
         }
 
         public void RestoreStack()
@@ -72,13 +65,11 @@ namespace calculadora.model
             try
             {
                 string[] readText = File.ReadAllText(@".\stack.sav").Split("\n", StringSplitOptions.RemoveEmptyEntries);
-                int i;
-                for (i = 0; i < readText.Length - 1; i++)
+                for (int i = 0; i < readText.Length; i++)
                 {
-                    stack[i] = double.Parse(readText[i].Trim());
+                    double num = double.Parse(readText[i].TrimEnd('\r'));
+                    stack.Add(num);
                 }
-                size = i;
-                start = i;
             }
             catch
             {

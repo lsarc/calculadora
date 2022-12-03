@@ -46,7 +46,7 @@ namespace calculadora.controller
         {
             double num1 = stack.Pop();
             double num2 = stack.Pop();
-            history.AddToHistory($"{num1} + {num2}");
+            history.AddToHistory($"{num1} + {num2} = {num2 + num1}");
             stack.Push(num1 + num2);
         }
 
@@ -54,7 +54,7 @@ namespace calculadora.controller
         {
             double num1 = stack.Pop();
             double num2 = stack.Pop();
-            history.AddToHistory($"{num2} - {num1}");
+            history.AddToHistory($"{num2} - {num1} = {num2 - num1}");
             stack.Push(num2 - num1);
         }
 
@@ -62,7 +62,7 @@ namespace calculadora.controller
         {
             double num1 = stack.Pop();
             double num2 = stack.Pop();
-            history.AddToHistory($"{num1} * {num2}");
+            history.AddToHistory($"{num1} * {num2} = {num1 * num2}");
             stack.Push(num1 * num2);
         }
 
@@ -70,15 +70,16 @@ namespace calculadora.controller
         {
             double num1 = stack.Pop();
             double num2 = stack.Pop();
-            history.AddToHistory($"{num2} / {num1}");
+            history.AddToHistory($"{num2} / {num1} = {num2/num1}");
             stack.Push(num2 / num1);
         }
 
         public void Sqrt()
         {
             var num = stack.Pop();
-            history.AddToHistory($"sqrt({num})");
-            stack.Push( Math.Sqrt(num));
+            var res = Math.Sqrt(num);
+            history.AddToHistory($"sqrt({num}) = {res}");
+            stack.Push(res);
         }
 
         public void Copy()

@@ -18,6 +18,7 @@ using System.Collections;
 using System.Diagnostics;
 using System.Xml.Linq;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace calculadora
 {
@@ -27,27 +28,20 @@ namespace calculadora
     public partial class MainWindow : Window
     {
         private string num = string.Empty;
-        CalcController controller = new CalcController();
+        private CalcController controller = new CalcController();
         public MainWindow()
         {
             InitializeComponent();
-            //try
-            //{
-            //    controller.Restore();
-            //}
-            //catch
-            //{
+            Application.Current.MainWindow.Closing += new CancelEventHandler(MainWindow_Closing);
+            try
+            {
+                controller.Restore();
+            }
+            catch (Exception ex)
+            {
+                Trace.WriteLine(ex);
+            }
 
-            //}
-
-            //foreach (var element in controller.getStack())
-            //{
-            //    Trace.WriteLine(element);
-            //}
-            //foreach (var element in controller.getHistory())
-            //{
-            //    Trace.WriteLine(element);
-            //}
             //controller.Push(20);
             //controller.Push(50);
             //controller.Push(80);
@@ -64,21 +58,20 @@ namespace calculadora
             //controller.Push(50);
             //controller.Push(80);
             //controller.Push(100);
-            //foreach (var element in controller.getHistory())
-            //{
-            //    Trace.WriteLine(element);
-            //}
-            //controller.Save();
-            stack.ItemsSource = controller.getStack();
-            history.ItemsSource = controller.getHistory();
-            numDisplay.Text = num;
+            Refresh();
 
+        }
+
+        void MainWindow_Closing(object sender, CancelEventArgs e)
+        {
+            controller.Save();
         }
 
         public void Refresh()
         {
-            stack.ItemsSource = controller.getStack();
             history.ItemsSource = controller.getHistory();
+            stack.ItemsSource = controller.getStack();
+            
             numDisplay.Text = num;
         }
 
@@ -91,9 +84,17 @@ namespace calculadora
 
         public void KeypadEnter(object sender, RoutedEventArgs e)
         {
-            controller.Push(double.Parse(num));
-            num = "";
+            if (num == string.Empty)
+            {
+                controller.Copy();
+            }
+            else
+            {
+                controller.Push(double.Parse(num));
+                num = string.Empty;
+            }
             Refresh();
+           
         }
 
         public void KeypadOp(object sender, RoutedEventArgs e)
@@ -114,10 +115,12 @@ namespace calculadora
                 case ('/'):
                     controller.Div();
                     break;
+                default:
+                    break;
 
             }
             Refresh();
-                
+
         }
 
     }
