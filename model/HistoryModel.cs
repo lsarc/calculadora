@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -60,6 +61,10 @@ namespace calculadora.model
                 throw new Exception("Erro de Leitura");
             }
 
+        }
+        public void Clear()
+        {
+            operacoes.Clear();
         }
     }
 }

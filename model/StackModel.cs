@@ -13,8 +13,6 @@ namespace calculadora.model
 {
     public class StackModel
     {
-        private int start;
-        private int size;
         private ObservableCollection<double> stack;
 
         public StackModel()
@@ -76,6 +74,11 @@ namespace calculadora.model
                 throw new Exception("Erro de Leitura");
             }
            
+        }
+
+        public void Clear()
+        {
+            stack.Clear();
         }
     }
 

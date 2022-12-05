@@ -44,6 +44,10 @@ namespace calculadora.controller
 
         public void Sum()
         {
+            if (stack.getSize() < 2)
+            {
+                throw new InvalidOperationException("Too Few Operands");
+            }
             double num1 = stack.Pop();
             double num2 = stack.Pop();
             history.AddToHistory($"{num1} + {num2} = {num2 + num1}");
@@ -52,6 +56,10 @@ namespace calculadora.controller
 
         public void Sub()
         {
+            if (stack.getSize() < 2)
+            {
+                throw new InvalidOperationException("Too Few Operands");
+            }
             double num1 = stack.Pop();
             double num2 = stack.Pop();
             history.AddToHistory($"{num2} - {num1} = {num2 - num1}");
@@ -60,6 +68,10 @@ namespace calculadora.controller
 
         public void Mult()
         {
+            if (stack.getSize() < 2)
+            {
+                throw new InvalidOperationException("Too Few Operands");
+            }
             double num1 = stack.Pop();
             double num2 = stack.Pop();
             history.AddToHistory($"{num1} * {num2} = {num1 * num2}");
@@ -68,7 +80,16 @@ namespace calculadora.controller
 
         public void Div()
         {
+            if (stack.getSize() < 2)
+            {
+                throw new InvalidOperationException("Too Few Operands");
+            }
             double num1 = stack.Pop();
+            if (num1 == 0.0)
+            {
+                stack.Push(num1);
+                throw new InvalidOperationException("Divided by Zero");
+            }
             double num2 = stack.Pop();
             history.AddToHistory($"{num2} / {num1} = {num2/num1}");
             stack.Push(num2 / num1);
@@ -76,7 +97,16 @@ namespace calculadora.controller
 
         public void Sqrt()
         {
+            if (stack.getSize() < 1)
+            {
+                throw new InvalidOperationException("Too Few Operands");
+            }
             var num = stack.Pop();
+            if (stack.getSize() < 0)
+            {
+                stack.Push(num);
+                throw new InvalidOperationException("Invalid Operand");
+            }
             var res = Math.Sqrt(num);
             history.AddToHistory($"sqrt({num}) = {res}");
             stack.Push(res);
@@ -84,6 +114,10 @@ namespace calculadora.controller
 
         public void Copy()
         {
+            if (stack.getSize() < 1)
+            {
+                throw new InvalidOperationException("Too Few Operands");
+            }
             double num = stack.Pop();
             stack.Push(num);
             stack.Push(num);
@@ -91,6 +125,10 @@ namespace calculadora.controller
 
         public void Percent()
         {
+            if (stack.getSize() < 1)
+            {
+                throw new InvalidOperationException("Too Few Operands");
+            }
             var num = stack.Pop();
             if (num > 1.0)
             {
@@ -103,12 +141,13 @@ namespace calculadora.controller
             }
         }
 
-        public void Clean()
+        public void ClearStack()
         {
-            for (int i = stack.getSize(); i > 0; i--)
-            {
-                stack.Pop();
-            }
+            stack.Clear();
+        }
+        public void ClearHistory()
+        {
+            history.Clear();
         }
 
         public List<string> getHistory()

@@ -28,6 +28,7 @@ namespace calculadora
     public partial class MainWindow : Window
     {
         private string num = string.Empty;
+        private bool error = false;
         private CalcController controller = new CalcController();
         public MainWindow()
         {
@@ -77,6 +78,11 @@ namespace calculadora
 
         public void KeypadAlpha(object sender, RoutedEventArgs e)
         {
+            if (error)
+            {
+                num = string.Empty;
+                error = false;
+            }
             int len = sender.ToString().Length;
             num += sender.ToString()[len - 1];
             numDisplay.Text = num;
@@ -84,42 +90,118 @@ namespace calculadora
 
         public void KeypadEnter(object sender, RoutedEventArgs e)
         {
-            if (num == string.Empty)
+            if (error)
             {
-                controller.Copy();
-            }
-            else
-            {
-                controller.Push(double.Parse(num));
                 num = string.Empty;
+                error = false;
             }
+            try
+            {
+                if (num == string.Empty)
+                {
+                    controller.Copy();
+                }
+                else
+                {
+                    controller.Push(double.Parse(num));
+                    num = string.Empty;
+                }
+            }
+            catch (Exception ex)
+            {
+                error = true;
+                num = ex.Message;
+            }
+            
             Refresh();
            
         }
 
+        public void KeypadDelete(object sender, RoutedEventArgs e)
+        {
+            if (error)
+            {
+                num = string.Empty;
+                error = false;
+            }
+            try
+            {
+                if (num == string.Empty)
+                {
+                    controller.Pop();
+                }
+                else
+                {
+                    num = num.Remove(num.Length - 1);
+                }
+            }
+            catch 
+            {
+                error = true;
+                num = "Too Few Operands";
+            }
+            
+            Refresh();
+
+        }
+
+        public void KeypadClearSt(object sender, RoutedEventArgs e)
+        {
+            controller.ClearStack();
+
+            Refresh();
+
+        }
+        public void KeypadClearHs(object sender, RoutedEventArgs e)
+        {
+            controller.ClearHistory();
+
+            Refresh();
+
+        }
+
         public void KeypadOp(object sender, RoutedEventArgs e)
         {
+            if (error)
+            {
+                num = string.Empty;
+                error = false;
+            }
+            if (num != string.Empty)
+            {
+                controller.Push(double.Parse(num));
+                num = string.Empty;
+            }
             int len = sender.ToString().Length;
             var op = sender.ToString()[len - 1];
-            switch (op)
+            try
             {
-                case ('+'):
-                    controller.Sum();
-                    break;
-                case ('-'):
-                    controller.Sub();
-                    break;
-                case ('*'):
-                    controller.Mult();
-                    break;
-                case ('/'):
-                    controller.Div();
-                    break;
-                default:
-                    break;
+                switch (op)
+                {
+                    case ('+'):
+                        controller.Sum();
+                        break;
+                    case ('-'):
+                        controller.Sub();
+                        break;
+                    case ('*'):
+                        controller.Mult();
+                        break;
+                    case ('/'):
+                        controller.Div();
+                        break;
+                    default:
+                        break;
 
+                }
+            }
+            catch (Exception ex)
+            {
+                error = true;
+                num = ex.Message;
             }
             Refresh();
+
 
         }
 

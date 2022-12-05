@@ -18,7 +18,7 @@
             <Button Margin="10" Height="40" Width="40" Content="/" Click="KeypadOp"/>
 
         </WrapPanel>
-        <WrapPanel Orientation="Horizontal" Margin="13,357,166,135" Grid.RowSpan="2">
+        <WrapPanel Orientation="Horizontal" Margin="13,357,166,59" Grid.RowSpan="2">
             <Button Margin="10" Height="40" Width="40" Content="7" Click="KeypadAlpha"/>
             <Button Margin="10" Height="40" Width="40" Content="8" Click="KeypadAlpha"/>
             <Button Margin="10" Height="40" Width="40" Content="9" Click="KeypadAlpha"/>
@@ -31,6 +31,9 @@
             <Button Margin="10" Height="40" Width="40" Content="0" Click="KeypadAlpha"/>
             <Button Margin="10" Height="40" Width="40" Content="." Click="KeypadAlpha"/>
             <Button Margin="10" Height="40" Width="40" Content="Enter" Click="KeypadEnter"/>
+            <Button Margin="10" Height="40" Width="40" Content="Delete" Click="KeypadDelete"/>
+            <Button Margin="10" Height="40" Width="40" Content="Cl St" Click="KeypadClearSt"/>
+            <Button Margin="10" Height="40" Width="40" Content="Cl Hs" Click="KeypadClearHs"/>
 
         </WrapPanel>
 
