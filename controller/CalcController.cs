@@ -37,6 +37,11 @@ namespace calculadora.controller
             stack.Switch(index1, index2);
         }
 
+        public void Switch(int index1)
+        {
+            stack.Switch(index1, stack.getSize()-1);
+        }
+
         public List<double> getStack()
         {
             return stack.getStack();

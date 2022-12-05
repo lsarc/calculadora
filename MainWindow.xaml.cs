@@ -40,25 +40,9 @@ namespace calculadora
             }
             catch (Exception ex)
             {
-                Trace.WriteLine(ex);
+                error = true;
+                num = ex.Message;
             }
-
-            //controller.Push(20);
-            //controller.Push(50);
-            //controller.Push(80);
-            //controller.Push(100);
-
-            //controller.Sum();
-            //controller.Sub();
-            //controller.Copy();
-            //controller.Mult();
-            //controller.Switch(1, 0);
-            //controller.Div();
-            //controller.Sqrt();
-            //controller.Push(20);
-            //controller.Push(50);
-            controller.Push(100);
-            controller.Push(3.5);
             Refresh();
 
         }
@@ -74,6 +58,21 @@ namespace calculadora
             stack.ItemsSource = controller.getStack();
             
             numDisplay.Text = num;
+        }
+
+        public void Switch(object sender, EventArgs e)
+        {
+            var index = (sender as ListView).SelectedIndex;
+            try 
+            { 
+                controller.Switch(index);
+                Refresh();
+            }
+            catch (Exception ex)
+            {
+                error = true;
+                num = ex.Message;
+            }
         }
 
         public void KeypadAlpha(object sender, RoutedEventArgs e)

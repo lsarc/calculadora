@@ -44,13 +44,12 @@
 
         </WrapPanel>
 
-        <ListView Name="stack" Margin="31,26,219,79" RenderTransformOrigin="0.516,0.499">
+        <ListView Name="stack" Margin="31,26,219,79" RenderTransformOrigin="0.516,0.499"  MouseDoubleClick="Switch">
 
 
         </ListView>
 
         <ListView Name="history" Margin="226,26,23,79" RenderTransformOrigin="0.516,0.499">
-
 
         </ListView>
 
