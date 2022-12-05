@@ -57,8 +57,8 @@ namespace calculadora
             //controller.Sqrt();
             //controller.Push(20);
             //controller.Push(50);
-            //controller.Push(80);
-            //controller.Push(100);
+            controller.Push(100);
+            controller.Push(3.5);
             Refresh();
 
         }
@@ -189,6 +189,27 @@ namespace calculadora
                         break;
                     case ('/'):
                         controller.Div();
+                        break;
+                    case ('%'):
+                        controller.Percent();
+                        break;
+                    case ('d'):
+                        controller.Mod();
+                        break;
+                    case ('g'):
+                        controller.Log();
+                        break;
+                    case ('y'):
+                        controller.Pow();
+                        break;
+                    case ('p'):
+                        controller.Exp();
+                        break;
+                    case ('i'):
+                        controller.Pi();
+                        break;
+                    case ('!'):
+                        controller.Factorial();
                         break;
                     default:
                         break;

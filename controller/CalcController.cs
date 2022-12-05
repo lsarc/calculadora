@@ -141,6 +141,95 @@ namespace calculadora.controller
             }
         }
 
+        public void Mod()
+        {
+            if (stack.getSize() < 2)
+            {
+                throw new InvalidOperationException("Too Few Operands");
+            }
+            double num1 = stack.Pop();
+            if (num1 == 0.0)
+            {
+                stack.Push(num1);
+                throw new InvalidOperationException("Divided by Zero");
+            }
+            double num2 = stack.Pop();
+            history.AddToHistory($"{num2} % {num1} = {num2 % num1}");
+            stack.Push(num2 % num1);
+        }
+
+        public void Exp()
+        {
+            if (stack.getSize() < 2)
+            {
+                throw new InvalidOperationException("Too Few Operands");
+            }
+            double num1 = stack.Pop();
+            double num2 = stack.Pop();
+            history.AddToHistory($"{num2} * 10^{num1} = {num2 * Math.Pow(10, num1)}");
+            stack.Push(num2*Math.Pow(10,num1));
+        }
+
+        public void Pow()
+        {
+            if (stack.getSize() < 2)
+            {
+                throw new InvalidOperationException("Too Few Operands");
+            }
+            double num1 = stack.Pop();
+            double num2 = stack.Pop();
+            history.AddToHistory($"{num1}^{num2} = {Math.Pow(num1, num2)}");
+            stack.Push(Math.Pow(num1, num2));
+        }
+
+        public void Log()
+        {
+            if (stack.getSize() < 1)
+            {
+                throw new InvalidOperationException("Too Few Operands");
+            }
+            var num = stack.Pop();
+            if (num < 0.0)
+            {
+                stack.Push(num);
+                throw new InvalidOperationException("Invalid Operand");
+            }
+            else
+            {
+                history.AddToHistory($"log{num} = {Math.Log10(num)}");
+                stack.Push(Math.Log10(num));
+            }
+        }
+        public void Pi()
+        {
+            stack.Push(Math.PI);
+        }
+        public void Factorial()
+        {
+            if (stack.getSize() < 1)
+            {
+                throw new InvalidOperationException("Too Few Operands");
+            }
+            var num = stack.Pop();
+            if (num%1.0 > 0.0)
+            {
+                stack.Push(num);
+                throw new InvalidOperationException("Invalid Operand");
+            }
+            else
+            {
+                double num1 = num;
+                double res = 1;
+                while(num > 0.0)
+                {
+                    res *= num;
+                    num--;
+                }
+                history.AddToHistory($"{num1}! = {res}");
+                stack.Push(res);
+            }
+        }
+
         public void ClearStack()
         {
             stack.Clear();

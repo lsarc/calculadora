@@ -11,29 +11,36 @@
             <RowDefinition Height="367*"/>
             <RowDefinition Height="418*"/>
         </Grid.RowDefinitions>
-        <WrapPanel Orientation="Horizontal" Margin="239,4,0,250" Grid.Row="1">
-            <Button Margin="10" Height="40" Width="40" Content="+" Click="KeypadOp"/>
-            <Button Margin="10" Height="40" Width="40" Content="-" Click="KeypadOp"/>
-            <Button Margin="10" Height="40" Width="40" Content="*" Click="KeypadOp"/>
-            <Button Margin="10" Height="40" Width="40" Content="/" Click="KeypadOp"/>
+        <WrapPanel Orientation="Horizontal" Margin="226,0,-21,-2" Grid.Row="1">
+            <Button Margin="5" Height="40" Width="40" Content="+" Click="KeypadOp"/>
+            <Button Margin="5" Height="40" Width="40" Content="-" Click="KeypadOp"/>
+            <Button Margin="5" Height="40" Width="40" Content="*" Click="KeypadOp"/>
+            <Button Margin="5" Height="40" Width="40" Content="/" Click="KeypadOp"/>
+            <Button Margin="5" Height="40" Width="40" Content="%" Click="KeypadOp"/>
+            <Button Margin="5" Height="40" Width="40" Content="Mod" Click="KeypadOp"/>
+            <Button Margin="5" Height="40" Width="40" Content="Log" Click="KeypadOp"/>
+            <Button Margin="5" Height="40" Width="40" Content="x^y" Click="KeypadOp"/>
+            <Button Margin="5" Height="40" Width="40" Content="Exp" Click="KeypadOp"/>
+            <Button Margin="5" Height="40" Width="40" Content="Pi" Click="KeypadOp"/>
+            <Button Margin="5" Height="40" Width="40" Content="n!" Click="KeypadOp"/>
 
         </WrapPanel>
-        <WrapPanel Orientation="Horizontal" Margin="13,357,166,59" Grid.RowSpan="2">
-            <Button Margin="10" Height="40" Width="40" Content="7" Click="KeypadAlpha"/>
-            <Button Margin="10" Height="40" Width="40" Content="8" Click="KeypadAlpha"/>
-            <Button Margin="10" Height="40" Width="40" Content="9" Click="KeypadAlpha"/>
-            <Button Margin="10" Height="40" Width="40" Content="4" Click="KeypadAlpha"/>
-            <Button Margin="10" Height="40" Width="40" Content="5" Click="KeypadAlpha"/>
-            <Button Margin="10" Height="40" Width="40" Content="6" Click="KeypadAlpha"/>
-            <Button Margin="10" Height="40" Width="40" Content="1" Click="KeypadAlpha"/>
-            <Button Margin="10" Height="40" Width="40" Content="2" Click="KeypadAlpha"/>
-            <Button Margin="10" Height="40" Width="40" Content="3" Click="KeypadAlpha"/>
-            <Button Margin="10" Height="40" Width="40" Content="0" Click="KeypadAlpha"/>
-            <Button Margin="10" Height="40" Width="40" Content="." Click="KeypadAlpha"/>
-            <Button Margin="10" Height="40" Width="40" Content="Enter" Click="KeypadEnter"/>
-            <Button Margin="10" Height="40" Width="40" Content="Delete" Click="KeypadDelete"/>
-            <Button Margin="10" Height="40" Width="40" Content="Cl St" Click="KeypadClearSt"/>
-            <Button Margin="10" Height="40" Width="40" Content="Cl Hs" Click="KeypadClearHs"/>
+        <WrapPanel Orientation="Horizontal" Margin="10,365,200,-8" Grid.RowSpan="2">
+            <Button Margin="5" Height="40" Width="40" Content="7" Click="KeypadAlpha"/>
+            <Button Margin="5" Height="40" Width="40" Content="8" Click="KeypadAlpha"/>
+            <Button Margin="5" Height="40" Width="40" Content="9" Click="KeypadAlpha"/>
+            <Button Margin="5" Height="40" Width="40" Content="4" Click="KeypadAlpha"/>
+            <Button Margin="5" Height="40" Width="40" Content="5" Click="KeypadAlpha"/>
+            <Button Margin="5" Height="40" Width="40" Content="6" Click="KeypadAlpha"/>
+            <Button Margin="5" Height="40" Width="40" Content="1" Click="KeypadAlpha"/>
+            <Button Margin="5" Height="40" Width="40" Content="2" Click="KeypadAlpha"/>
+            <Button Margin="5" Height="40" Width="40" Content="3" Click="KeypadAlpha"/>
+            <Button Margin="5" Height="40" Width="40" Content="0" Click="KeypadAlpha"/>
+            <Button Margin="5" Height="40" Width="40" Content="." Click="KeypadAlpha"/>
+            <Button Margin="5" Height="40" Width="40" Content="Enter" Click="KeypadEnter"/>
+            <Button Margin="5" Height="40" Width="40" Content="Delete" Click="KeypadDelete"/>
+            <Button Margin="5" Height="40" Width="40" Content="Cl St" Click="KeypadClearSt"/>
+            <Button Margin="5" Height="40" Width="40" Content="Cl Hs" Click="KeypadClearHs"/>
 
         </WrapPanel>
 
