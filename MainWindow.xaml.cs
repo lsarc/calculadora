@@ -225,5 +225,17 @@ namespace calculadora
 
         }
 
+        private void ShowHistory(object sender, RoutedEventArgs e)
+        {
+            var select = (sender as CheckBox).IsChecked.ToString();
+            if (select == "True")
+            {
+                this.Width = 600;
+            }
+            else
+            {
+                this.Width = 300;
+            }
+        }
     }
 }

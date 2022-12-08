@@ -5,57 +5,75 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:calculadora"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="400">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="367*"/>
-            <RowDefinition Height="418*"/>
-        </Grid.RowDefinitions>
-        <WrapPanel Orientation="Horizontal" Margin="226,0,-21,-2" Grid.Row="1">
-            <Button Margin="5" Height="40" Width="40" Content="+" Click="KeypadOp"/>
-            <Button Margin="5" Height="40" Width="40" Content="-" Click="KeypadOp"/>
-            <Button Margin="5" Height="40" Width="40" Content="*" Click="KeypadOp"/>
-            <Button Margin="5" Height="40" Width="40" Content="/" Click="KeypadOp"/>
-            <Button Margin="5" Height="40" Width="40" Content="%" Click="KeypadOp"/>
-            <Button Margin="5" Height="40" Width="40" Content="Mod" Click="KeypadOp"/>
-            <Button Margin="5" Height="40" Width="40" Content="Log" Click="KeypadOp"/>
-            <Button Margin="5" Height="40" Width="40" Content="x^y" Click="KeypadOp"/>
-            <Button Margin="5" Height="40" Width="40" Content="Exp" Click="KeypadOp"/>
-            <Button Margin="5" Height="40" Width="40" Content="Pi" Click="KeypadOp"/>
-            <Button Margin="5" Height="40" Width="40" Content="n!" Click="KeypadOp"/>
+        Title="calculadora" Height="700" Width="300" Background="#303038" ResizeMode="NoResize">
+    <Grid Height="700" Width="600" Background="#303038">
 
-        </WrapPanel>
-        <WrapPanel Orientation="Horizontal" Margin="10,365,200,-8" Grid.RowSpan="2">
-            <Button Margin="5" Height="40" Width="40" Content="7" Click="KeypadAlpha"/>
-            <Button Margin="5" Height="40" Width="40" Content="8" Click="KeypadAlpha"/>
-            <Button Margin="5" Height="40" Width="40" Content="9" Click="KeypadAlpha"/>
-            <Button Margin="5" Height="40" Width="40" Content="4" Click="KeypadAlpha"/>
-            <Button Margin="5" Height="40" Width="40" Content="5" Click="KeypadAlpha"/>
-            <Button Margin="5" Height="40" Width="40" Content="6" Click="KeypadAlpha"/>
-            <Button Margin="5" Height="40" Width="40" Content="1" Click="KeypadAlpha"/>
-            <Button Margin="5" Height="40" Width="40" Content="2" Click="KeypadAlpha"/>
-            <Button Margin="5" Height="40" Width="40" Content="3" Click="KeypadAlpha"/>
-            <Button Margin="5" Height="40" Width="40" Content="0" Click="KeypadAlpha"/>
-            <Button Margin="5" Height="40" Width="40" Content="." Click="KeypadAlpha"/>
-            <Button Margin="5" Height="40" Width="40" Content="Enter" Click="KeypadEnter"/>
-            <Button Margin="5" Height="40" Width="40" Content="Delete" Click="KeypadDelete"/>
-            <Button Margin="5" Height="40" Width="40" Content="Cl St" Click="KeypadClearSt"/>
-            <Button Margin="5" Height="40" Width="40" Content="Cl Hs" Click="KeypadClearHs"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="300" />
 
-        </WrapPanel>
+        </Grid.ColumnDefinitions>
 
-        <ListView Name="stack" Margin="31,26,219,79" RenderTransformOrigin="0.516,0.499"  MouseDoubleClick="Switch">
+        <DockPanel>
+            <Menu DockPanel.Dock="Top" Background="#303030" VerticalAlignment="Top" Foreground="White">
+                <MenuItem Header="_Options">
+                    <CheckBox Name="CheckHistory" Content="History" Click="ShowHistory"/>
+                    <MenuItem Header="_Clear History" Click="KeypadClearHs" Foreground="Black"/>
+                    <MenuItem Header="_Clear Stack" Click="KeypadClearSt" Foreground="Black"/>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+
+        <ListView Grid.Column="0" Name="stack" Margin="44,68,48,489" RenderTransformOrigin="0.516,0.499"  MouseDoubleClick="Switch" Background="#BDC1A6" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" FontSize="18" FontFamily="Arial" TextOptions.TextRenderingMode="Aliased" >
+
 
 
         </ListView>
 
-        <ListView Name="history" Margin="226,26,23,79" RenderTransformOrigin="0.516,0.499">
+        <ListView Name="history" Margin="10,29,27,116"  Background="#BDC1A6" FontFamily="Arial" FontSize="18" Grid.Column="1" />
 
-        </ListView>
+        <TextBlock Grid.Column="0" Name="numDisplay" Margin="44,237,48,0" Background="#BDC1A6" TextAlignment="Right" FontFamily="Arial" FontSize="18" VerticalAlignment="Top"/>
 
-        <TextBlock Name="numDisplay" Margin="95,312,95,15" Background="LightGray" TextAlignment="Right">
+        <WrapPanel Grid.Column="0" Orientation="Horizontal" Margin="34,278,34,51" RenderTransformOrigin="0.5,0.5" >
+            <WrapPanel.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.144"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.597"/>
+                </TransformGroup>
+            </WrapPanel.RenderTransform>
+            <Button Margin="2" Height="50" Width="50" Content="%" Click="KeypadOp" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
+            <Button Margin="2" Height="50" Width="50" Content="Mod" Click="KeypadOp" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
+            <Button Margin="2" Height="50" Width="50" Content="Log" Click="KeypadOp" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
+            <Button Margin="2" Height="50" Width="50" Content="x^y" Click="KeypadOp" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
+            <Button Margin="2" Height="50" Width="50" Content="Exp" Click="KeypadOp" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
+            <Button Margin="2" Height="50" Width="50" Content="Pi" Click="KeypadOp" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold"  FontSize="16"/>
+            <Button Margin="2" Height="50" Width="50" Content="n!" Click="KeypadOp" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
+            <Button Margin="2" Height="50" Width="50" Content="Del" Click="KeypadDelete" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
+            <Button Margin="2" Height="50" Width="50" Content="7" Click="KeypadAlpha" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
+            <Button Margin="2" Height="50" Width="50" Content="8" Click="KeypadAlpha" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
+            <Button Margin="2" Height="50" Width="50" Content="9" Click="KeypadAlpha" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
+            <Button Margin="2" Height="50" Width="50" Content="/" Click="KeypadOp" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
+            <Button Margin="2" Height="50" Width="50" Content="4" Click="KeypadAlpha" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
+            <Button Margin="2" Height="50" Width="50" Content="5" Click="KeypadAlpha" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
+            <Button Margin="2" Height="50" Width="50" Content="6" Click="KeypadAlpha" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
+            <Button Margin="2" Height="50" Width="50" Content="*" Click="KeypadOp" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
+            <Button Margin="2" Height="50" Width="50" Content="1" Click="KeypadAlpha" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
+            <Button Margin="2" Height="50" Width="50" Content="2" Click="KeypadAlpha" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
+            <Button Margin="2" Height="50" Width="50" Content="3" Click="KeypadAlpha" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
+            <Button Margin="2" Height="50" Width="50" Content="-" Click="KeypadOp" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
+            <Button Margin="2" Height="50" Width="50" Content="0" Click="KeypadAlpha" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
+            <Button Margin="2" Height="50" Width="50" Content="." Click="KeypadAlpha" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
+            <Button Margin="2" Height="50" Width="50" Content="Enter" Click="KeypadEnter" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
+            <Button Margin="2" Height="50" Width="50" Content="+" Click="KeypadOp" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
 
-        </TextBlock>
+
+        </WrapPanel>
+
+
+
+
     </Grid>
 
 
