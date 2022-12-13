@@ -58,6 +58,12 @@ namespace calculadora
             stack.ItemsSource = controller.getStack();
             
             numDisplay.Text = num;
+            var qtd = stack.Items.Count - 1;
+            if (qtd >= 0)
+            {
+                stack.ScrollIntoView(stack.Items.GetItemAt(qtd));
+            }
+            
         }
 
         public void Switch(object sender, EventArgs e)
@@ -111,6 +117,7 @@ namespace calculadora
                 error = true;
                 num = ex.Message;
             }
+            
             
             Refresh();
            

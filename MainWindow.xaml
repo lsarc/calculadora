@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:calculadora"
         mc:Ignorable="d"
-        Title="calculadora" Height="700" Width="300" Background="#303038" ResizeMode="NoResize">
-    
+        Title="calculadora" Height="668" Width="300" Background="#303038" ResizeMode="NoResize">
+
     <Grid Height="700" Width="600" Background="#303038">
 
         <Grid.ColumnDefinitions>
@@ -18,32 +18,22 @@
         <DockPanel>
             <Menu DockPanel.Dock="Top" Background="#303030" VerticalAlignment="Top" Foreground="White">
                 <MenuItem Header="_Options">
-                    <CheckBox Name="CheckHistory" Content="History" Click="ShowHistory"/>
+                    <CheckBox x:Name="CheckHistory" Content="History" Click="ShowHistory"/>
                     <MenuItem Header="_Clear History" Click="KeypadClearHs" Foreground="Black"/>
                     <MenuItem Header="_Clear Stack" Click="KeypadClearSt" Foreground="Black"/>
                 </MenuItem>
             </Menu>
         </DockPanel>
 
-        <ListView Grid.Column="0" Name="stack" Margin="44,68,48,489" RenderTransformOrigin="0.516,0.499"  MouseDoubleClick="Switch" Background="#BDC1A6" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" FontSize="18" FontFamily="Arial" TextOptions.TextRenderingMode="Aliased" >
+        <Rectangle Fill="#BDC1A6" Margin="42,45,42,442"/>
 
+        <ListView Grid.Column="0" x:Name="stack"  Margin="42,45,42,489"  MouseDoubleClick="Switch" Background="#BDC1A6" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" FontSize="18" FontFamily="Arial" TextOptions.TextRenderingMode="Aliased" VerticalAlignment="Bottom"/>
 
+        <ListView Grid.Column="1" x:Name="history" Margin="10,45,27,100"  Background="#BDC1A6" FontFamily="Arial" FontSize="18"  />
 
-        </ListView>
+        <TextBlock Grid.Column="0" x:Name="numDisplay" Margin="48,225,48,0" Background="#BDC1A6" TextAlignment="Right" FontFamily="Arial" FontSize="18" VerticalAlignment="Top"/>
 
-        <ListView Name="history" Margin="10,29,27,116"  Background="#BDC1A6" FontFamily="Arial" FontSize="18" Grid.Column="1" />
-
-        <TextBlock Grid.Column="0" Name="numDisplay" Margin="44,237,48,0" Background="#BDC1A6" TextAlignment="Right" FontFamily="Arial" FontSize="18" VerticalAlignment="Top"/>
-
-        <WrapPanel Grid.Column="0" Orientation="Horizontal" Margin="34,278,34,51" RenderTransformOrigin="0.5,0.5" >
-            <WrapPanel.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleX="0.144"/>
-                    <RotateTransform/>
-                    <TranslateTransform X="0.597"/>
-                </TransformGroup>
-            </WrapPanel.RenderTransform>
+        <WrapPanel Grid.Column="0" Orientation="Horizontal" Margin="42,278,42,94">
             <Button Style="{StaticResource BtnTemplate}" Content="%" Click="KeypadOp"/>
             <Button Style="{StaticResource BtnTemplate}" Content="Mod" Click="KeypadOp" />
             <Button Style="{StaticResource BtnTemplate}" Content="Log" Click="KeypadOp" />
@@ -68,15 +58,6 @@
             <Button Style="{StaticResource BtnTemplate}" Content="." Click="KeypadAlpha" />
             <Button Style="{StaticResource BtnTemplate}" Content="Enter" Click="KeypadEnter" />
             <Button Style="{StaticResource BtnTemplate}" Content="+" Click="KeypadOp" />
-
-
         </WrapPanel>
-
-
-
-
     </Grid>
-
-
-
 </Window>
