@@ -8,7 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="model\Class1.cs" />
+    <Resource Include="resources\BtnTemplate.xaml">
+      <CustomToolNamespace></CustomToolNamespace>
+    </Resource>
   </ItemGroup>
 
 </Project>

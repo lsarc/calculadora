@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:calculadora"
         mc:Ignorable="d"
         Title="calculadora" Height="700" Width="300" Background="#303038" ResizeMode="NoResize">
+    
     <Grid Height="700" Width="600" Background="#303038">
 
         <Grid.ColumnDefinitions>
@@ -43,30 +44,30 @@
                     <TranslateTransform X="0.597"/>
                 </TransformGroup>
             </WrapPanel.RenderTransform>
-            <Button Margin="2" Height="50" Width="50" Content="%" Click="KeypadOp" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
-            <Button Margin="2" Height="50" Width="50" Content="Mod" Click="KeypadOp" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
-            <Button Margin="2" Height="50" Width="50" Content="Log" Click="KeypadOp" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
-            <Button Margin="2" Height="50" Width="50" Content="x^y" Click="KeypadOp" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
-            <Button Margin="2" Height="50" Width="50" Content="Exp" Click="KeypadOp" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
-            <Button Margin="2" Height="50" Width="50" Content="Pi" Click="KeypadOp" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold"  FontSize="16"/>
-            <Button Margin="2" Height="50" Width="50" Content="n!" Click="KeypadOp" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
-            <Button Margin="2" Height="50" Width="50" Content="Del" Click="KeypadDelete" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
-            <Button Margin="2" Height="50" Width="50" Content="7" Click="KeypadAlpha" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
-            <Button Margin="2" Height="50" Width="50" Content="8" Click="KeypadAlpha" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
-            <Button Margin="2" Height="50" Width="50" Content="9" Click="KeypadAlpha" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
-            <Button Margin="2" Height="50" Width="50" Content="/" Click="KeypadOp" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
-            <Button Margin="2" Height="50" Width="50" Content="4" Click="KeypadAlpha" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
-            <Button Margin="2" Height="50" Width="50" Content="5" Click="KeypadAlpha" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
-            <Button Margin="2" Height="50" Width="50" Content="6" Click="KeypadAlpha" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
-            <Button Margin="2" Height="50" Width="50" Content="*" Click="KeypadOp" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
-            <Button Margin="2" Height="50" Width="50" Content="1" Click="KeypadAlpha" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
-            <Button Margin="2" Height="50" Width="50" Content="2" Click="KeypadAlpha" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
-            <Button Margin="2" Height="50" Width="50" Content="3" Click="KeypadAlpha" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
-            <Button Margin="2" Height="50" Width="50" Content="-" Click="KeypadOp" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
-            <Button Margin="2" Height="50" Width="50" Content="0" Click="KeypadAlpha" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
-            <Button Margin="2" Height="50" Width="50" Content="." Click="KeypadAlpha" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
-            <Button Margin="2" Height="50" Width="50" Content="Enter" Click="KeypadEnter" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
-            <Button Margin="2" Height="50" Width="50" Content="+" Click="KeypadOp" Background="#252525" Foreground="#FFFFFF" FontWeight="Bold" FontSize="16"/>
+            <Button Style="{StaticResource BtnTemplate}" Content="%" Click="KeypadOp"/>
+            <Button Style="{StaticResource BtnTemplate}" Content="Mod" Click="KeypadOp" />
+            <Button Style="{StaticResource BtnTemplate}" Content="Log" Click="KeypadOp" />
+            <Button Style="{StaticResource BtnTemplate}" Content="x^y" Click="KeypadOp" />
+            <Button Style="{StaticResource BtnTemplate}" Content="Exp" Click="KeypadOp" />
+            <Button Style="{StaticResource BtnTemplate}" Content="Pi" Click="KeypadOp" />
+            <Button Style="{StaticResource BtnTemplate}" Content="n!" Click="KeypadOp" />
+            <Button Style="{StaticResource BtnTemplate}" Content="Del" Click="KeypadDelete" />
+            <Button Style="{StaticResource BtnTemplate}" Content="7" Click="KeypadAlpha" />
+            <Button Style="{StaticResource BtnTemplate}" Content="8" Click="KeypadAlpha" />
+            <Button Style="{StaticResource BtnTemplate}" Content="9" Click="KeypadAlpha" />
+            <Button Style="{StaticResource BtnTemplate}" Content="/" Click="KeypadOp" />
+            <Button Style="{StaticResource BtnTemplate}" Content="4" Click="KeypadAlpha" />
+            <Button Style="{StaticResource BtnTemplate}" Content="5" Click="KeypadAlpha" />
+            <Button Style="{StaticResource BtnTemplate}" Content="6" Click="KeypadAlpha" />
+            <Button Style="{StaticResource BtnTemplate}" Content="*" Click="KeypadOp" />
+            <Button Style="{StaticResource BtnTemplate}" Content="1" Click="KeypadAlpha" />
+            <Button Style="{StaticResource BtnTemplate}" Content="2" Click="KeypadAlpha" />
+            <Button Style="{StaticResource BtnTemplate}" Content="3" Click="KeypadAlpha" />
+            <Button Style="{StaticResource BtnTemplate}" Content="-" Click="KeypadOp" />
+            <Button Style="{StaticResource BtnTemplate}" Content="0" Click="KeypadAlpha" />
+            <Button Style="{StaticResource BtnTemplate}" Content="." Click="KeypadAlpha" />
+            <Button Style="{StaticResource BtnTemplate}" Content="Enter" Click="KeypadEnter" />
+            <Button Style="{StaticResource BtnTemplate}" Content="+" Click="KeypadOp" />
 
 
         </WrapPanel>
