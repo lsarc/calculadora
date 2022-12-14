@@ -5,6 +5,7 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
+            <FontFamily x:Key="MOZART NBP">./Fonts/NotoSans-Regular.ttf#MOZART NBP</FontFamily>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="./resources/BtnTemplate.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>

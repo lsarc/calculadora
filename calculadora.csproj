@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Resource Include="Fonts\MozartNbp-93Ey.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="resources\BtnTemplate.xaml">
       <CustomToolNamespace></CustomToolNamespace>
     </Resource>
