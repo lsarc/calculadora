@@ -93,6 +93,28 @@ namespace calculadora
             numDisplay.Text = num;
         }
 
+        public void KeypadChangeSingal(object sender, RoutedEventArgs e)
+        {
+            if (error)
+            {
+                num = string.Empty;
+                error = false;
+            }
+            if (num != string.Empty)
+            {
+            if (num[0] != '-')
+            {
+                num = '-' + num;
+                numDisplay.Text = num;
+            }
+            else
+            {
+                num = num.Remove(0, 1);
+                numDisplay.Text = num;
+            }
+        }
+        }
+
         public void KeypadEnter(object sender, RoutedEventArgs e)
         {
             if (error)

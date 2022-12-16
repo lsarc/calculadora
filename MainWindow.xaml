@@ -72,7 +72,7 @@
             <Button Style="{StaticResource BtnTemplate}" Content="0" Click="KeypadAlpha" />
             <Button Style="{StaticResource BtnTemplate}" Content="." Click="KeypadAlpha" />
             <Button Style="{StaticResource BtnTemplate}" Content="Enter" Click="KeypadEnter" />
-            <Button Style="{StaticResource BtnTemplate}" Content="+" Click="KeypadOp" />
+            <Button Style="{StaticResource BtnTemplate}" Content="+/-" Click="KeypadChangeSingal" />
         </WrapPanel>
     </Grid>
 </Window>
