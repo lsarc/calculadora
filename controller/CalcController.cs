@@ -113,9 +113,9 @@ namespace calculadora.controller
                 throw new InvalidOperationException("Invalid Operand");
             }
             if (num > 0) { 
-            var res = Math.Sqrt(num);
-            history.AddToHistory($"sqrt({num}) = {res}");
-            stack.Push(res);
+                var res = Math.Sqrt(num);
+                history.AddToHistory($"sqrt({num}) = {res}");
+                stack.Push(res);
             } else
             {
                 stack.Push(num);

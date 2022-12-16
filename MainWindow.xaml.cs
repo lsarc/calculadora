@@ -102,17 +102,17 @@ namespace calculadora
             }
             if (num != string.Empty)
             {
-            if (num[0] != '-')
-            {
-                num = '-' + num;
-                numDisplay.Text = num;
+                if (num[0] != '-')
+                {
+                    num = '-' + num;
+                    numDisplay.Text = num;
+                }
+                else
+                {
+                    num = num.Remove(0, 1);
+                    numDisplay.Text = num;
+                }
             }
-            else
-            {
-                num = num.Remove(0, 1);
-                numDisplay.Text = num;
-            }
-        }
         }
 
         public void KeypadEnter(object sender, RoutedEventArgs e)

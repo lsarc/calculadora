@@ -29,18 +29,17 @@
         
         <ListView BorderThickness="0" Grid.Column="0" x:Name="stack"  Margin="42,45,42,489"  MouseDoubleClick="Switch" Background="#BDC1A6" HorizontalContentAlignment="Right" VerticalContentAlignment="Bottom" FontSize="24" FontFamily="Fonts/#MOZART NBP" TextOptions.TextRenderingMode="Aliased" VerticalAlignment="Bottom"/>
 
-        <ListView Grid.Column="1" x:Name="history" Margin="10,45,27,100"  Background="#BDC1A6" FontFamily="Arial" FontSize="18"  />
+        <ListView Grid.Column="1" x:Name="history" Margin="10,45,27,100"  Background="#BDC1A6" FontFamily="Fonts/#MOZART NBP" FontSize="18"  />
 
         
         <TextBlock Grid.Column="0" x:Name="numDisplay" Margin="48,225,48,0" Background="#BDC1A6" TextAlignment="Right" FontFamily="Fonts/#MOZART NBP" FontSize="24" VerticalAlignment="Top"/>
 
-        <Label FontFamily="Fonts/#MOZART NBP" FontSize="24" Margin="48,220,0,456" HorizontalAlignment="Left" Content="1:"/>
-        <Label FontFamily="Fonts/#MOZART NBP" FontSize="24" Margin="48,183,0,489" HorizontalAlignment="Left" Content="2:"/>
-        <Label FontFamily="Fonts/#MOZART NBP" FontSize="24" Margin="48,160,48,489" HorizontalAlignment="Left" Content="3:"/>
-        <Label FontFamily="Fonts/#MOZART NBP" FontSize="24" Margin="48,137,0,499" HorizontalAlignment="Left" Content="4:"/>
-        <Label FontFamily="Fonts/#MOZART NBP" FontSize="24" Margin="48,112,0,524" HorizontalAlignment="Left" Content="5:"/>
-        <Label FontFamily="Fonts/#MOZART NBP" FontSize="24" Margin="48,89,0,547" HorizontalAlignment="Left" Content="6:"/>
-        <Label FontFamily="Fonts/#MOZART NBP" FontSize="24" Margin="48,64,0,572" HorizontalAlignment="Left" Content="7:"/>
+        <Label FontFamily="Fonts/#MOZART NBP" FontSize="24" Margin="48,183,0,489" HorizontalAlignment="Left" Content="1:"/>
+        <Label FontFamily="Fonts/#MOZART NBP" FontSize="24" Margin="48,160,48,489" HorizontalAlignment="Left" Content="2:"/>
+        <Label FontFamily="Fonts/#MOZART NBP" FontSize="24" Margin="48,137,0,499" HorizontalAlignment="Left" Content="3:"/>
+        <Label FontFamily="Fonts/#MOZART NBP" FontSize="24" Margin="48,112,0,524" HorizontalAlignment="Left" Content="4:"/>
+        <Label FontFamily="Fonts/#MOZART NBP" FontSize="24" Margin="48,89,0,547" HorizontalAlignment="Left" Content="5:"/>
+        <Label FontFamily="Fonts/#MOZART NBP" FontSize="24" Margin="48,64,0,572" HorizontalAlignment="Left" Content="6:"/>
 
 
         <WrapPanel Grid.Column="0" Orientation="Horizontal" Margin="10,278,10,94">
@@ -68,9 +67,6 @@
             <Button Style="{StaticResource BtnTemplate}" Content="1" Click="KeypadAlpha" />
             <Button Style="{StaticResource BtnTemplate}" Content="2" Click="KeypadAlpha" />
             <Button Style="{StaticResource BtnTemplate}" Content="3" Click="KeypadAlpha" />
-            <Button Style="{StaticResource BtnTemplate}" Content="-" Click="KeypadOp" />
-            <Button Style="{StaticResource BtnTemplate}" Content="0" Click="KeypadAlpha" />
-            <Button Style="{StaticResource BtnTemplate}" Content="." Click="KeypadAlpha" />
             <Button Style="{StaticResource BtnTemplate}" Content="Enter" Click="KeypadEnter" />
             <Button Style="{StaticResource BtnTemplate}" Content="+/-" Click="KeypadChangeSingal" />
         </WrapPanel>
