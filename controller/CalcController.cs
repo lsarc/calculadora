@@ -112,9 +112,15 @@ namespace calculadora.controller
                 stack.Push(num);
                 throw new InvalidOperationException("Invalid Operand");
             }
+            if (num > 0) { 
             var res = Math.Sqrt(num);
             history.AddToHistory($"sqrt({num}) = {res}");
             stack.Push(res);
+            } else
+            {
+                stack.Push(num);
+                throw new InvalidOperationException("Invalid Operation");
+            }
         }
 
         public void Copy()

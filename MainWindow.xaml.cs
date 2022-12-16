@@ -217,6 +217,9 @@ namespace calculadora
                     case ('!'):
                         controller.Factorial();
                         break;
+                    case ('t'):
+                        controller.Sqrt();
+                        break;
                     default:
                         break;
 
