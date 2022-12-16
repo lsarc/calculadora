@@ -42,33 +42,33 @@
         <Label FontFamily="Fonts/#MOZART NBP" FontSize="24" Margin="48,64,0,572" HorizontalAlignment="Left" Content="6:"/>
 
 
-        <WrapPanel Grid.Column="0" Orientation="Horizontal" Margin="10,278,10,94">
-            <Button Style="{StaticResource BtnTemplate}" Content="%" Click="KeypadOp"/>
-            <Button Style="{StaticResource BtnTemplate}" Content="Mod" Click="KeypadOp" />
-            <Button Style="{StaticResource BtnTemplate}" Content="Log" Click="KeypadOp" />
+        <WrapPanel Grid.Column="0" Orientation="Horizontal" Margin="42,278,42,94">
+            <Button Style="{StaticResource BtnTemplate}" Width="20" Content="%" Click="KeypadOp"/>
+            <Button Style="{StaticResource BtnTemplate}" Width="40" Content="Mod" Click="KeypadOp" />
+            <Button Style="{StaticResource BtnTemplate}" Width="36" Content="Log" Click="KeypadOp" />
             <Button Style="{StaticResource BtnTemplate}" Content="x^y" Click="KeypadOp" />
-            <Button Style="{StaticResource BtnTemplate}" Content="-" Click="KeypadOp" />
             <Button Style="{StaticResource BtnTemplate}" Content="Exp" Click="KeypadOp" />
-            <Button Style="{StaticResource BtnTemplate}" Content="Pi" Click="KeypadOp" />
-            <Button Style="{StaticResource BtnTemplate}" Content="n!" Click="KeypadOp" />
-            <Button Style="{StaticResource BtnTemplate}" Content="Del" Click="KeypadDelete" />
-            <Button Style="{StaticResource BtnTemplate}" Content="/" Click="KeypadOp" />
+            <Button Style="{StaticResource BtnTemplate}" Width="26" Content="Pi" Click="KeypadOp" />
+            <Button Style="{StaticResource BtnTemplate}"  Width="30" Content="n!" Click="KeypadOp" />
             <Button Style="{StaticResource BtnTemplate}" Content="sqrt" Click="KeypadOp" />
+            <Button Style="{StaticResource BtnTemplate}"  Width="40" Content="+/-" Click="KeypadChangeSingal" />
+            <Button Style="{StaticResource BtnTemplate}" Content="Del" Click="KeypadDelete" />
             <Button Style="{StaticResource BtnTemplate}" Content="7" Click="KeypadAlpha" />
             <Button Style="{StaticResource BtnTemplate}" Content="8" Click="KeypadAlpha" />
             <Button Style="{StaticResource BtnTemplate}" Content="9" Click="KeypadAlpha" />
-            <Button Style="{StaticResource BtnTemplate}" Content="*" Click="KeypadOp" />
-            <Button Style="{StaticResource BtnTemplate}" Content="." Click="KeypadAlpha" />
+            <Button Style="{StaticResource BtnTemplate}" Content="/" Click="KeypadOp" />
             <Button Style="{StaticResource BtnTemplate}" Content="4" Click="KeypadAlpha" />
             <Button Style="{StaticResource BtnTemplate}" Content="5" Click="KeypadAlpha" />
             <Button Style="{StaticResource BtnTemplate}" Content="6" Click="KeypadAlpha" />
-            <Button Style="{StaticResource BtnTemplate}" Content="+" Click="KeypadOp" />
-            <Button Style="{StaticResource BtnTemplate}" Content="0" Click="KeypadAlpha" />
+            <Button Style="{StaticResource BtnTemplate}" Content="*" Click="KeypadOp" />
             <Button Style="{StaticResource BtnTemplate}" Content="1" Click="KeypadAlpha" />
             <Button Style="{StaticResource BtnTemplate}" Content="2" Click="KeypadAlpha" />
             <Button Style="{StaticResource BtnTemplate}" Content="3" Click="KeypadAlpha" />
+            <Button Style="{StaticResource BtnTemplate}" Content="-" Click="KeypadOp" />
+            <Button Style="{StaticResource BtnTemplate}" Content="0" Click="KeypadAlpha" />
+            <Button Style="{StaticResource BtnTemplate}" Content="." Click="KeypadAlpha" />
             <Button Style="{StaticResource BtnTemplate}" Content="Enter" Click="KeypadEnter" />
-            <Button Style="{StaticResource BtnTemplate}" Content="+/-" Click="KeypadChangeSingal" />
+            <Button Style="{StaticResource BtnTemplate}" Content="+" Click="KeypadOp" />
         </WrapPanel>
     </Grid>
 </Window>
