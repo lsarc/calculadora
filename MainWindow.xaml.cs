@@ -93,7 +93,7 @@ namespace calculadora
             numDisplay.Text = num;
         }
 
-        public void KeypadChangeSingal(object sender, RoutedEventArgs e)
+        public void KeypadChangeSignal(object sender, RoutedEventArgs e)
         {
             if (error)
             {

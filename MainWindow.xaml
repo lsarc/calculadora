@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:calculadora"
         mc:Ignorable="d"
-        Title="calculadora" Height="668" Width="300" Background="#303038" ResizeMode="NoResize">
+        Title="HPoli 4.8"  Height="668" Width="300" Background="#303038" ResizeMode="NoResize">
 
     <Grid Height="700" Width="600" Background="#303038">
 
@@ -51,7 +51,7 @@
             <Button Style="{StaticResource BtnTemplate}" Width="26" Content="Pi" Click="KeypadOp" />
             <Button Style="{StaticResource BtnTemplate}"  Width="30" Content="n!" Click="KeypadOp" />
             <Button Style="{StaticResource BtnTemplate}" Content="sqrt" Click="KeypadOp" />
-            <Button Style="{StaticResource BtnTemplate}"  Width="40" Content="+/-" Click="KeypadChangeSingal" />
+            <Button Style="{StaticResource BtnTemplate}"  Width="40" Content="+/-" Click="KeypadChangeSignal" />
             <Button Style="{StaticResource BtnTemplate}" Content="Del" Click="KeypadDelete" />
             <Button Style="{StaticResource BtnTemplate}" Content="7" Click="KeypadAlpha" />
             <Button Style="{StaticResource BtnTemplate}" Content="8" Click="KeypadAlpha" />

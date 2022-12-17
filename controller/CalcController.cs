@@ -107,12 +107,7 @@ namespace calculadora.controller
                 throw new InvalidOperationException("Too Few Operands");
             }
             var num = stack.Pop();
-            if (stack.getSize() < 0)
-            {
-                stack.Push(num);
-                throw new InvalidOperationException("Invalid Operand");
-            }
-            if (num > 0) { 
+            if (num > 0.0) { 
                 var res = Math.Sqrt(num);
                 history.AddToHistory($"sqrt({num}) = {res}");
                 stack.Push(res);
@@ -189,6 +184,12 @@ namespace calculadora.controller
             }
             double num1 = stack.Pop();
             double num2 = stack.Pop();
+            if ( (num1 < 0.0) && (Math.Abs(num2) < 1) && (Math.Abs(num2) > 0.0))
+            {
+                stack.Push(num2);
+                stack.Push(num1);
+                throw new InvalidOperationException("Invalid Operation");
+            } 
             history.AddToHistory($"{num1}^{num2} = {Math.Pow(num1, num2)}");
             stack.Push(Math.Pow(num1, num2));
         }
