@@ -50,15 +50,23 @@ namespace calculadora.model
         {
             try
             {
-                string[] readText = File.ReadAllText(@".\history.sav").Split("\n", StringSplitOptions.RemoveEmptyEntries);
-                for (int i = 0; i < readText.Length; i++)
+                if (!File.Exists(@".\history.sav"))
                 {
-                    operacoes.Add(readText[i].TrimEnd('\r'));
+                    File.CreateText(@".\history.sav");
                 }
+                else
+                {
+                    string[] readText = File.ReadAllText(@".\history.sav").Split("\n", StringSplitOptions.RemoveEmptyEntries);
+                    for (int i = 0; i < readText.Length; i++)
+                    {
+                        operacoes.Add(readText[i].TrimEnd('\r'));
+                    }
+                }
+                
             }
             catch
             {
-                throw new Exception("Erro de Leitura");
+                throw new Exception("Erro de Leitura de Historico");
             }
 
         }

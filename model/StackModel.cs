@@ -62,16 +62,24 @@ namespace calculadora.model
         {
             try
             {
-                string[] readText = File.ReadAllText(@".\stack.sav").Split("\n", StringSplitOptions.RemoveEmptyEntries);
-                for (int i = 0; i < readText.Length; i++)
+                if (!File.Exists(@".\stack.sav"))
                 {
-                    double num = double.Parse(readText[i].TrimEnd('\r'));
-                    stack.Add(num);
+                    File.CreateText(@".\stack.sav");
                 }
+                else
+                {
+                    string[] readText = File.ReadAllText(@".\stack.sav").Split("\n", StringSplitOptions.RemoveEmptyEntries);
+                    for (int i = 0; i < readText.Length; i++)
+                    {
+                        double num = double.Parse(readText[i].TrimEnd('\r'));
+                        stack.Add(num);
+                    }
+                }
+                
             }
             catch
             {
-                throw new Exception("Erro de Leitura");
+                throw new Exception("Erro de Leitura de Pilha");
             }
            
         }
