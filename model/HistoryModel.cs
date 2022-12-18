@@ -66,7 +66,7 @@ namespace calculadora.model
             }
             catch
             {
-                throw new Exception("Erro de Leitura de Historico");
+                throw new Exception("Error Loading History");
             }
 
         }

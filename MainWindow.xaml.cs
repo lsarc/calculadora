@@ -58,10 +58,10 @@ namespace calculadora
             stack.ItemsSource = controller.getStack();
             
             numDisplay.Text = num;
-            var qtd = stack.Items.Count - 1;
-            if (qtd >= 0)
+            var index = stack.Items.Count - 1;
+            if (index >= 0)
             {
-                stack.ScrollIntoView(stack.Items.GetItemAt(qtd));
+                stack.ScrollIntoView(stack.Items.GetItemAt(index));
             }
             
         }

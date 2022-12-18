@@ -79,7 +79,7 @@ namespace calculadora.model
             }
             catch
             {
-                throw new Exception("Erro de Leitura de Pilha");
+                throw new Exception("Error Loading Stack");
             }
            
         }
