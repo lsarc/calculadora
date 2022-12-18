@@ -52,6 +52,21 @@ namespace calculadora
             controller.Save();
         }
 
+        public void ParsePush()
+        {
+            double res;
+            bool ch = double.TryParse(this.num, out res);
+            this.num = string.Empty;
+            if (!ch)
+            {
+                throw new Exception("Invalid Input");
+            }
+            else
+            {
+                controller.Push(res);
+            }
+        }
+
         public void Refresh()
         {
             history.ItemsSource = controller.getHistory();
@@ -130,8 +145,7 @@ namespace calculadora
                 }
                 else
                 {
-                    controller.Push(double.Parse(num));
-                    num = string.Empty;
+                    ParsePush();
                 }
             }
             catch (Exception ex)
@@ -190,20 +204,20 @@ namespace calculadora
 
         public void KeypadOp(object sender, RoutedEventArgs e)
         {
-            if (error)
-            {
-                num = string.Empty;
-                error = false;
-            }
-            if (num != string.Empty)
-            {
-                controller.Push(double.Parse(num));
-                num = string.Empty;
-            }
-            int len = sender.ToString().Length;
-            var op = sender.ToString()[len - 1];
             try
             {
+                if (error)
+                {
+                    num = string.Empty;
+                    error = false;
+                }
+                if (num != string.Empty)
+                {
+                    ParsePush();
+                }
+                int len = sender.ToString().Length;
+                var op = sender.ToString()[len - 1];
+               
                 switch (op)
                 {
                     case ('+'):
@@ -253,8 +267,6 @@ namespace calculadora
                 num = ex.Message;
             }
             Refresh();
-
-
         }
 
         private void ShowHistory(object sender, RoutedEventArgs e)
